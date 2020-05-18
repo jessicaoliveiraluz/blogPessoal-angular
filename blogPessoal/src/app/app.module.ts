@@ -21,7 +21,7 @@ import { HttpClientModule } from '@angular/common/http'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
     HttpClientModule
   ],
   providers: [],
