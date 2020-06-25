@@ -11,15 +11,23 @@ export class FeedComponent implements OnInit {
 
   listaPostagens: Postagem[]
 
+  postagem: Postagem = new Postagem
+
   constructor(private postagemService: PostagemService) { }
 
   ngOnInit() {
-    this.findallPostagens()
+    this.findAllPostagens()
   }
 
-  findallPostagens() {
+  findAllPostagens() {
     this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
       this.listaPostagens = resp
+    })
+  }
+
+  publicar() {
+    this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => { //sendo que quero enviar um objeto preenchido e não um objeto vazio.
+      this.postagem = resp
     })
   }
 }
