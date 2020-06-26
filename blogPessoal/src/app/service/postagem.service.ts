@@ -11,7 +11,7 @@ export class PostagemService {
   constructor(private http: HttpClient) { }
 
   /* 
-  CRUD - Create(post), ready(get), Update(put) e Delete(delete).
+  CRUD - Create(post), read(get), Update(put) e Delete(delete).
   4 operações básicas que um crud faz.
   */
 
@@ -20,7 +20,15 @@ export class PostagemService {
   }
 
   postPostagem(postagem: Postagem) {
-    return this.http.post('http://31.220.57.14:8080/postagens', postagem)
+    return this.http.post('c', postagem)
+  }
+
+  putPostagem(postagem: Postagem) {
+    return this.http.put('http://31.220.57.14:8080/postagens', postagem)
+  }
+
+  getByIdPostagem(id: number) {
+    return this.http.get(`http://31.220.57.14:8080/postagens/${id}`)
   }
 
 }
